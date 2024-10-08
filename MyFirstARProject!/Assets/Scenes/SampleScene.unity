@@ -735,7 +735,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100024, guid: 05b0336cad2ece64b99ce054ed619f4c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1535997605}
+      addedObject: {fileID: 1535997607}
   m_SourcePrefab: {fileID: 100100000, guid: 05b0336cad2ece64b99ce054ed619f4c, type: 3}
 --- !u!1 &1316715214 stripped
 GameObject:
@@ -747,7 +747,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400024, guid: 05b0336cad2ece64b99ce054ed619f4c, type: 3}
   m_PrefabInstance: {fileID: 1316715213}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1535997605
+--- !u!95 &1535997606 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 05b0336cad2ece64b99ce054ed619f4c, type: 3}
+  m_PrefabInstance: {fileID: 1316715213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535997607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -756,17 +761,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316715214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e75cb6c08770744bb248ad03c102e59, type: 3}
+  m_Script: {fileID: 11500000, guid: 43a882458a2a6894eadd07dc453703c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1535997606}
   targetCharacter: {fileID: 1309107475}
   proximityThreshold: 0.25
---- !u!95 &1535997606 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 9500000, guid: 05b0336cad2ece64b99ce054ed619f4c, type: 3}
-  m_PrefabInstance: {fileID: 1316715213}
-  m_PrefabAsset: {fileID: 0}
+  attackDuration: 3
 --- !u!1 &1657586311
 GameObject:
   m_ObjectHideFlags: 0
