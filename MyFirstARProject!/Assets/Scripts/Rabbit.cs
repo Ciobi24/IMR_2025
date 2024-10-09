@@ -4,45 +4,45 @@ using UnityEngine;
 
 public class CharacterProximityDetector : MonoBehaviour
 {
-    public Animator animator;           // Reference to the Animator
-    public Transform targetCharacter;   // Reference to the other character (target)
-    public float proximityThreshold = 0.25f; // Proximity distance to switch to Attack
-    public float attackDuration = 3.0f; // Duration in seconds before switching to Die state
+    public Animator animator;           
+    public Transform targetCharacter;   
+    public float proximityThreshold = 0.25f; 
+    public float attackDuration = 3.0f; 
 
-    private bool isAttacking = false;   // Flag to check if already in attack mode
-    private bool isDead = false;        // Flag to check if character is dead
-    private float attackTime = 0f;      // Timer for tracking attack duration
+    private bool isAttacking = false;   
+    private bool isDead = false;        
+    private float attackTime = 0f;      
 
     void Start()
     {
         if (animator == null)
         {
-            animator = GetComponent<Animator>();  // Get Animator if not assigned
+            animator = GetComponent<Animator>();  
         }
     }
 
     void Update()
     {
-        // Check distance between the current character and the target
+        //distance 
         float distance = Vector3.Distance(transform.position, targetCharacter.position);
 
-        // If they are close enough, switch to Attack state (if not already attacking or dead)
+        //switch to Attack state (if not already attacking or dead)
         if (distance <= proximityThreshold && !isAttacking && !isDead)
         {
             TriggerAttack();
         }
-        // If they are far away, go back to Idle state (if not dead)
+        // go back to Idle state 
         else if (distance > proximityThreshold )
         {
             TriggerIdle();
         }
 
-        // If the character is attacking, track the duration
+        // the character is attacking, track the duration
         if (isAttacking)
         {
             attackTime += Time.deltaTime;
 
-            // If the attack time exceeds the threshold, trigger the Die state
+            // attack time exceeds the threshold, trigger Die state
             if (attackTime >= attackDuration && distance <= proximityThreshold)
             {
                 TriggerDie();
@@ -54,23 +54,23 @@ public class CharacterProximityDetector : MonoBehaviour
     {
         animator.SetBool("InRange", true);
         animator.SetBool("isHit",false);
-         isAttacking = true;  // Set attacking state
-        attackTime = 0f;     // Reset the attack timer
+        isAttacking = true;  
+        attackTime = 0f;     
     }
 
     void TriggerIdle()
     {
-         animator.SetBool("InRange", false);
-         animator.SetBool("isHit",false);
-        isAttacking = false;  // Set idle state
+        animator.SetBool("InRange", false);
+        animator.SetBool("isHit",false);
+        isAttacking = false;  
         isDead=false;
-        attackTime = 0f;      // Reset the attack timer
+        attackTime = 0f;      
     }
 
     void TriggerDie()
     {
         animator.SetBool("isHit",true);
-        isAttacking = false;  // Stop attacking
-        isDead = true;        // Set dead state
+        isAttacking = false;  
+        isDead = true;       
     }
 }
