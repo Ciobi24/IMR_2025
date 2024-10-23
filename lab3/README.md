@@ -1,0 +1,1 @@
+Continut realizat: Modelare model mana in Blender (idee: mana tematica halloween); UV unwrapping + Material/Textura; Export/Import in proiectul cu Golf in Unity; Bonus: momentan jumatate din bonus: am adaugat scheletul(armature in Blender), urmeaza animatiile si aplicarea lor in proiectul cu golf. 
